@@ -9,11 +9,6 @@
 [2021-04-25 19:10:47,871] INFO in app: output prediction: 
    CHAS     RM    TAX  PTRATIO      B  LSTAT
 0     0  6.575  296.0     15.3  396.9   4.98
+[2021-04-25 19:10:47,877] INFO in app: Prediction values: [20.35373177134412]
 172.17.0.1 - - [25/Apr/2021 19:10:47] "POST /predict HTTP/1.1" 200 -
 
-Port: 8000
-{
-  "prediction": [
-    20.35373177134412
-  ]
-}
