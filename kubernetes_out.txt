@@ -1,4 +1,39 @@
-Port: 31122
++ dockerpath=sarasalem2410/udacityproject4:latest
++ kubectl run udacityproject4 --image=sarasalem2410/udacityproject4:latest --port=80
+Error from server (AlreadyExists): pods "udacityproject4" already exists
++ kubectl get pods
+NAME      READY   STATUS    RESTARTS   AGE
+udacityproject4   1/1     Running   0          5m48s
++ kubectl port-forward udacityproject4 8000:80
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+
+(.devops) sara@progy:/mnt/sda5/ml-microservice-kubernetes$ bash -x make_prediction.sh 
++ PORT=8000
++ echo 'Port: 8000'
+Port: 8000
++ curl -d '{  
+   "CHAS":{  
+      "0":0
+   },
+   "RM":{  
+      "0":6.575
+   },
+   "TAX":{  
+      "0":296.0
+   },
+   "PTRATIO":{  
+      "0":15.3
+   },
+   "B":{  
+      "0":396.9
+   },
+   "LSTAT":{  
+      "0":4.98
+   }
+}' -H 'Content-Type: application/json' -X POST http://localhost:8000/predict
 {
   "prediction": [
     20.35373177134412
